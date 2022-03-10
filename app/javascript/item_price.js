@@ -11,8 +11,6 @@ function item() {
     const salesProfit = document.getElementById("profit");
     salesProfit.innerHTML = Math.floor(inputValue - addTaxPrice);
   });
-
 };
-
 
 window.addEventListener('load', item);

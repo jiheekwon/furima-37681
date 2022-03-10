@@ -1,16 +1,23 @@
 class Item < ApplicationRecord
   validates :name, presence: true
   validates :explain, presence: true
-  validates :category_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
-  validates :condition_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
-  validates :burden_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
-  validates :prefecture_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
-  validates :shipping_date_id, presence: true, numericality: { other_than: 1, message: "can't be blank"}
+  validates :category_id, presence: true, numericality: { other_than: 1 }
+  validates :condition_id, presence: true, numericality: { other_than: 1 }
+  validates :burden_id, presence: true, numericality: { other_than: 1 }
+  validates :prefecture_id, presence: true, numericality: { other_than: 1 }
+  validates :shipping_date_id, presence: true, numericality: { other_than: 1 }
   validates :price, presence: true,
                     numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 
-  has_one_attached :image
   belongs_to :user
+
+  has_one_attached :image
+  validate :image_presence
+  def image_presence
+    unless image.attached?
+      errors.add(:image, "can't be blank")
+    end
+  end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
