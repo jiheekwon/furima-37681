@@ -14,9 +14,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   validate :image_presence
   def image_presence
-    unless image.attached?
-      errors.add(:image, "can't be blank")
-    end
+    errors.add(:image, "can't be blank") unless image.attached?
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
