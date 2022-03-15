@@ -50,7 +50,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'conditionに「---」が選択されている場合は出品できない' do
-        @item.category_id = 1
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Condition must be other than 1')
       end
@@ -62,7 +62,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'burdenに「---」が選択されている場合は出品できない' do
-        @item.category_id = 1
+        @item.burden_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Burden must be other than 1')
       end
@@ -74,7 +74,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'prefectureに「---」が選択されている場合は出品できない' do
-        @item.category_id = 1
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
@@ -86,7 +86,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'shipping_dateに「---」が選択されている場合は出品できない' do
-        @item.category_id = 1
+        @item.shipping_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping date must be other than 1')
       end
