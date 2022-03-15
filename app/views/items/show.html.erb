@@ -22,8 +22,7 @@
       </span>
     </div>
 
-    <% if @item.buy.present? %>
-    <% else %>
+    <% if @item.buy.blank? %>
       <% if user_signed_in? && current_user.id == @item.user_id %>
         <%= link_to "商品の編集", edit_item_path(@item), method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
