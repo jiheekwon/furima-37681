@@ -16,25 +16,25 @@ RSpec.describe Item, type: :model do
       it 'imageがなければ出品できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品画像を選択してください")
+        expect(@item.errors.full_messages).to include('商品画像を選択してください')
       end
 
       it 'nameが空では出品できない' do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品名を入力してください")
+        expect(@item.errors.full_messages).to include('商品名を入力してください')
       end
 
       it 'explainが空では出品できない' do
         @item.explain = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
+        expect(@item.errors.full_messages).to include('商品の説明を入力してください')
       end
 
       it 'categoryが空では出品できない' do
         @item.category_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("カテゴリーを入力してください")
+        expect(@item.errors.full_messages).to include('カテゴリーを入力してください')
       end
 
       it 'categoryに「---」が選択されている場合は出品できない' do
@@ -46,7 +46,7 @@ RSpec.describe Item, type: :model do
       it 'conditionが空では出品できない' do
         @item.condition_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の状態を入力してください")
+        expect(@item.errors.full_messages).to include('商品の状態を入力してください')
       end
 
       it 'conditionに「---」が選択されている場合は出品できない' do
@@ -58,7 +58,7 @@ RSpec.describe Item, type: :model do
       it 'burdenが空では出品できない' do
         @item.burden_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("配送料の負担を入力してください")
+        expect(@item.errors.full_messages).to include('配送料の負担を入力してください')
       end
 
       it 'burdenに「---」が選択されている場合は出品できない' do
@@ -70,7 +70,7 @@ RSpec.describe Item, type: :model do
       it 'prefectureが空では出品できない' do
         @item.prefecture_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("発送元の地域を入力してください")
+        expect(@item.errors.full_messages).to include('発送元の地域を入力してください')
       end
 
       it 'prefectureに「---」が選択されている場合は出品できない' do
@@ -82,7 +82,7 @@ RSpec.describe Item, type: :model do
       it 'shipping_dateが空では出品できない' do
         @item.shipping_date_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("発送までの日数を入力してください")
+        expect(@item.errors.full_messages).to include('発送までの日数を入力してください')
       end
 
       it 'shipping_dateに「---」が選択されている場合は出品できない' do
@@ -94,7 +94,7 @@ RSpec.describe Item, type: :model do
       it 'priceが空では出品できない' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("価格を入力してください")
+        expect(@item.errors.full_messages).to include('価格を入力してください')
       end
 
       it 'priceは¥300より小さいと出品できない' do
